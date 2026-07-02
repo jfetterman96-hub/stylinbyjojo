@@ -134,49 +134,30 @@
   /* ---------- HERO ---------- */
   .hero{
     min-height:100vh;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    position:relative;
-  }
-  .hero-img{
-    position:relative;
-    overflow:hidden;
-    background:var(--beige-soft);
-    min-height:100vh;
-  }
-  .hero-img img{
-    width:100%;height:100%;
-    object-fit:cover;
-    object-position:center top;
-    display:block;
-  }
-  .hero-img .ph-fill{
-    position:absolute;inset:0;
-    background:linear-gradient(160deg, var(--beige-soft), var(--ivory-deep));
-    display:none;
-  }
-  .hero-text{
     background:var(--ivory);
     display:flex;
     flex-direction:column;
+    align-items:center;
     justify-content:center;
-    padding:120px 70px 80px;
+    text-align:center;
+    position:relative;
+    padding:140px 6vw 100px;
   }
-  .hero-text h1{
+  .hero h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(3.4rem, 5.5vw, 5.8rem);
+    font-size:clamp(4rem, 9vw, 8rem);
     font-weight:600;
     color:var(--black);
-    margin:18px 0 26px;
-    line-height:1.02;
+    margin:18px 0 28px;
+    line-height:1.0;
     letter-spacing:0.01em;
   }
-  .hero-text p{
+  .hero p{
     font-size:1.05rem;
     letter-spacing:0.02em;
     color:var(--black-soft);
-    max-width:400px;
-    margin-bottom:38px;
+    max-width:480px;
+    margin:0 auto 40px;
     line-height:1.75;
   }
   .btn{
@@ -195,8 +176,8 @@
 
   .scroll-cue{
     position:absolute;
-    bottom:32px;right:50%;
-    transform:translateX(50%);
+    bottom:32px;left:50%;
+    transform:translateX(-50%);
     color:var(--black);
     font-size:0.68rem;
     letter-spacing:0.3em;
@@ -210,11 +191,6 @@
     background:var(--black);
     margin:10px auto 0;
     opacity:0.5;
-  }
-  @media (max-width:820px){
-    .hero{grid-template-columns:1fr;}
-    .hero-img{min-height:70vw;}
-    .hero-text{padding:60px 8vw 70px;}
   }
 
   /* ---------- SECTION GENERIC ---------- */
@@ -536,16 +512,10 @@
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-img">
-    <img src="images/hero.jpg" alt="StylinbyJojo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-    <div class="ph-fill"></div>
-  </div>
-  <div class="hero-text">
-    <p class="eyebrow">South Florida &nbsp;&middot;&nbsp; Luxury Personal Styling</p>
-    <h1>StylinbyJojo</h1>
-    <p>Editorial styling and elevated shopping experiences — curated for the way you actually live.</p>
-    <a href="#contact" class="btn btn-dark">Book a Consultation</a>
-  </div>
+  <p class="eyebrow">South Florida &nbsp;&middot;&nbsp; Luxury Personal Styling</p>
+  <h1>StylinbyJojo</h1>
+  <p>Editorial styling and elevated shopping experiences — curated for the way you actually live.</p>
+  <a href="#contact" class="btn btn-dark">Book a Consultation</a>
   <div class="scroll-cue">Scroll</div>
 </section>
 
