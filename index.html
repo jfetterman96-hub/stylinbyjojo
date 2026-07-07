@@ -463,9 +463,18 @@
     padding:46px 0 34px;
   }
   footer .logo{color:var(--ivory);font-size:1.2rem;}
+  .footer-socials{
+    margin-top:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    flex-wrap:wrap;
+  }
+  .footer-sep{color:var(--beige);opacity:0.5;}
   footer .footer-ig{
     display:inline-block;
-    margin-top:16px;
+    margin-top:0;
     font-size:0.8rem;
     letter-spacing:0.08em;
     color:var(--beige);
@@ -653,7 +662,7 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <p class="eyebrow fade-up">Let's Talk</p>
-    <h2 class="fade-up" style="margin:14px 0;">Start Your Styling Journey</h2>
+    <h2 class="fade-up" style="margin:14px 0;">Let's Talk Fashion</h2>
     <a href="mailto:stylinbyjojo@gmail.com" class="email-link fade-up">stylinbyjojo@gmail.com</a>
     <p class="sub fade-up">South Florida &nbsp;&middot;&nbsp; By appointment</p>
     <div class="fade-up contact-btns">
@@ -666,7 +675,11 @@
 
 <footer>
   <div class="logo">StylinbyJojo</div>
-  <a href="https://www.instagram.com/stylinbyjojo" target="_blank" rel="noopener" class="footer-ig">@stylinbyjojo on Instagram</a>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/stylinbyjojo" target="_blank" rel="noopener" class="footer-ig">@stylinbyjojo on Instagram</a>
+    <span class="footer-sep">&nbsp;&middot;&nbsp;</span>
+    <a href="https://www.tiktok.com/@stylinbyjojo" target="_blank" rel="noopener" class="footer-ig">@stylinbyjojo on TikTok</a>
+  </div>
   <p>&copy; <span id="year"></span> StylinbyJojo. All rights reserved.</p>
 </footer>
 
