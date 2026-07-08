@@ -134,7 +134,8 @@
     z-index:100;
     flex-direction:column;
   }
-  .nav-dropdown:hover .nav-dropdown-menu{display:flex;}
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu{display:flex;}
   .nav-dropdown-menu a{
     display:block;
     padding:14px 20px;
@@ -242,6 +243,10 @@
 
   /* ---------- SECTION GENERIC ---------- */
   section{padding:120px 0;}
+  @media (max-width:760px){
+    .hero{padding:80px 6vw 60px;}
+    section{padding:72px 0;}
+  }
   .section-head{
     text-align:center;
     margin-bottom:70px;
@@ -496,12 +501,16 @@
   }
   .contact .btn{margin-top:36px;}
   .contact-btns{
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(200px, auto));
     justify-content:center;
     gap:18px;
-    flex-wrap:wrap;
+    margin-top:36px;
   }
-  .contact-btns .btn{margin-top:36px;}
+  .contact-btns .btn{margin-top:0;}
+  .contact-btns .btn:last-child:nth-child(odd){
+    grid-column:1 / -1;
+  }
 
   footer{
     background:var(--black);
@@ -722,11 +731,11 @@
     <a href="mailto:stylinbyjojo@gmail.com" class="email-link fade-up">stylinbyjojo@gmail.com</a>
     <p class="sub fade-up">South Florida &nbsp;&middot;&nbsp; By appointment</p>
     <div class="fade-up contact-btns">
-      <a href="mailto:stylinbyjojo@gmail.com" class="btn btn-dark">Send an Email</a>
       <a href="https://www.instagram.com/stylinbyjojo" target="_blank" rel="noopener" class="btn btn-dark">Follow on Instagram</a>
       <a href="https://www.tiktok.com/@jojoofett" target="_blank" rel="noopener" class="btn btn-dark">Follow on TikTok</a>
       <a href="https://shopmy.us/shop/stylinbyjojo?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" rel="noopener" class="btn btn-dark">Shop My Picks</a>
       <a href="https://www.amazon.com/shop/stylinbyjojo/list/1VYX550SK358E?tag=onamzjojofett-20&ref_=aip_sf_list_spv_ons_mixed_d&ccs_id=52bd8338-1b55-4231-ab8c-602e21309194" target="_blank" rel="noopener" class="btn btn-dark">Amazon Storefront</a>
+      <a href="mailto:stylinbyjojo@gmail.com" class="btn btn-dark">Send an Email</a>
     </div>
   </div>
 </section>
@@ -753,6 +762,25 @@
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Shop dropdown: tap toggle for mobile
+  const shopDropdown = document.querySelector('.nav-dropdown');
+  const shopToggle = shopDropdown && shopDropdown.querySelector('.nav-dropdown-toggle');
+  if(shopToggle){
+    shopToggle.addEventListener('click', (e) => {
+      const isOpen = shopDropdown.classList.contains('open');
+      shopDropdown.classList.toggle('open', !isOpen);
+      e.stopPropagation();
+    });
+    // Close when a menu item is clicked
+    shopDropdown.querySelectorAll('.nav-dropdown-menu a').forEach(a => {
+      a.addEventListener('click', () => shopDropdown.classList.remove('open'));
+    });
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if(!shopDropdown.contains(e.target)) shopDropdown.classList.remove('open');
+    });
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
