@@ -215,6 +215,7 @@
     font-size:0.78rem;
     letter-spacing:0.2em;
     text-transform:uppercase;
+    text-align:center;
     transition:background .35s ease, color .35s ease;
   }
   .btn-light{color:#fff;}
@@ -244,8 +245,13 @@
   /* ---------- SECTION GENERIC ---------- */
   section{padding:120px 0;}
   @media (max-width:760px){
-    .hero{padding:80px 6vw 60px;}
-    section{padding:72px 0;}
+    .hero{
+      min-height:0;
+      padding:76px 6vw 40px;
+      justify-content:flex-start;
+    }
+    .scroll-cue{display:none;}
+    section{padding:48px 0;}
   }
   .section-head{
     text-align:center;
