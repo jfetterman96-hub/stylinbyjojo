@@ -101,6 +101,53 @@
     transition:width .3s ease;
   }
   .nav-links a:hover::after{width:100%;}
+  .nav-dropdown{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+  }
+  .nav-dropdown-toggle{
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    cursor:pointer;
+    position:relative;
+    padding-bottom:6px;
+  }
+  .nav-dropdown-toggle::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:1px;
+    background:var(--black);
+    transition:width .3s ease;
+  }
+  .nav-dropdown:hover .nav-dropdown-toggle::after{width:100%;}
+  .nav-dropdown-menu{
+    display:none;
+    position:absolute;
+    top:calc(100% + 14px);
+    right:0;
+    background:var(--ivory);
+    border:1px solid var(--line);
+    min-width:180px;
+    z-index:100;
+    flex-direction:column;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu{display:flex;}
+  .nav-dropdown-menu a{
+    display:block;
+    padding:14px 20px;
+    font-size:0.76rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    transition:background .2s ease;
+    white-space:nowrap;
+  }
+  .nav-dropdown-menu a:last-child{border-bottom:none;}
+  .nav-dropdown-menu a:hover{background:var(--ivory-deep);}
+  .nav-dropdown-menu a::after{display:none;}
   .nav-links a.ig-link{
     padding-bottom:0;
     display:inline-flex;
@@ -516,7 +563,13 @@
         <a href="#press">Press</a>
         <a href="#location">Location</a>
         <a href="#contact">Contact</a>
-        <a href="https://shopmy.us/shop/stylinbyjojo?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" rel="noopener">Shop</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-toggle">Shop</span>
+          <div class="nav-dropdown-menu">
+            <a href="https://shopmy.us/shop/stylinbyjojo?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" rel="noopener">Shop My Picks</a>
+            <a href="https://www.amazon.com/shop/stylinbyjojo/list/1VYX550SK358E?tag=onamzjojofett-20&ref_=aip_sf_list_spv_ons_mixed_d&ccs_id=52bd8338-1b55-4231-ab8c-602e21309194" target="_blank" rel="noopener">Amazon Storefront</a>
+          </div>
+        </div>
         <a href="https://www.instagram.com/stylinbyjojo" target="_blank" rel="noopener" class="ig-link" aria-label="StylinbyJojo on Instagram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
